@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>{{ alumnus.user.first_name }} {{ alumnus.user.last_name }} ({{ alumnus.year.pk }})</h1>
+
+
+<div class="column_left">
+	<h2>Contact</h2>
+	<table>
+		{% if alumnus.user.email %}<tr><th>Email :</th><td><a href="mailto:{{ alumnus.user.email }}">{{ alumnus.user.email }}</a></td></tr>{% endif %}
+		{% if alumnus.phone1 %}<tr><th>Phone number :</th><td>{{ alumnus.phone1 }}</td></tr>{% endif %}
+		{% if alumnus.phone2 %}<tr><th>Phone number (2) :</th><td>{{ alumnus.phone2 }}</td></tr>{% endif %}
+		{% if alumnus.postal %}<tr><th>Postal :</th><td>{{ alumnus.postal }}</td></tr>{% endif %}
+		{% if alumnus.website %}<tr><th>Website :</th><td>{{ alumnus.website }}</td></tr>{% endif %}
+	</table>
+</div>
+
+<div class="column_right">
+	{% if alumnus.photo %}<img src="{{ MEDIA_URL }}{{ alumnus.photo }}" />{% endif %}
+</div>
+
+<div class="column_after">
+</div>
+
+<h2>About {{ alumnus.user.first_name }}</h2>
+
+<p>{% if alumnus.presentation %}{{ alumnus.presentation }}{% endif %}</p>
+
+<br/>
+
+<table>
+	{% if alumnus.diploma %}<tr><th>Diploma :</th><td>{{ alumnus.diploma }}</td></tr>{% endif %}
+	{% if alumnus.company %}<tr><th>Company :</th><td>{{ alumnus.company }}</td></tr>{% endif %}
+	{% if alumnus.job %}<tr><th>Position :</th><td>{{ alumnus.job }}</td></tr>{% endif %}
+	{% if alumnus.keywords %}<tr><th>Keymords :</th><td>{{ alumnus.keywords }}</td></tr>{% endif %}
+	{# {% if alumnus.domain %}<tr><th>Domain :</th><td>{{ alumnus.domain.name }}</td></tr>{% endif %} #}
+	{% if alumnus.cv %}<tr><th>CV :</th><td><a href="{{ MEDIA_URL }}{{ alumnus.cv }}">CV</a></td></tr>{% endif %}
+</table>
+
+
+{% endblock %}

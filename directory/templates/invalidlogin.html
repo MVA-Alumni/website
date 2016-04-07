@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block selected_login %}selected{% endblock %}
+
+{% block content %}
+<h1>Invalid link</h1>
+
+This login link is invalid. Possible reasons are :
+<ul>
+    <li>You already used this link to log in.</li>
+    <li>The link was sent to you more than 24 hours ago.</li>
+    <li>You made an error while copying the link.</li> 
+</ul>
+
+If none of these reasons apply, contact us at <a href="mailto:{{ EMAIL_CONTACT }}">{{ EMAIL_CONTACT }}</a>.
+
+{% endblock %}
+ 

@@ -1,0 +1,9 @@
+Dear {{ user.first_name }},
+
+Please use the following link to login to the MVA Alumni Directory : {{ PROTOCOL }}://{{ DOMAIN }}{% url 'login_token' username=user.username token=token %} Note that for security reasons, this link is valid only one day.
+
+Our mail server is new, so it may not be recognized as a legitimate mail sender by every mail hoster (eg gmail, hotmail, yahoo...). If you received this mail in your spam directory, it would be very kind from you to click on the "Not spam" button (or equivalent) !
+
+
+The MVA Alumni Directory team
+{{ EMAIL_CONTACT }}

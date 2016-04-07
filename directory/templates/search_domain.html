@@ -1,0 +1,17 @@
+ {% extends "base.html" %}
+
+{% block selected_search %}selected{% endblock %}
+{% block selected_search_domain %}selected{% endblock %}
+
+
+{% block content %}
+
+<h1>Search by domain</h1>
+
+<ul>
+{% for domain in domains %}
+    <li><a href="{% url 'domain' domain.pk %}">{{ domain.name }}</a></li>
+{% endfor %}
+</ul>
+
+{% endblock %}

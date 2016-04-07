@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+           
+{% block header %}
+<img id="logo" width=100% src='{% static "directory/pano_cachan.jpg" %}'>
+{% endblock %}
+
+{% block selected_home %}selected{% endblock %}
+
+{% block content %}
+<h1>Welcome to the master MVA Alumni Directory !</h1>
+
+Visit the <a href="http://www.math.ens-cachan.fr/version-francaise/formations/master-mva/">official master's webpage</a>.
+
+{% endblock %}

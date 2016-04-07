@@ -1,0 +1,14 @@
+Dear {{ user.first_name }},
+
+You have been registered to the MVA Alumni Directory. Welcome to our growing network ! You can use the following link to connect for the first time : {{ PROTOCOL }}://{{ DOMAIN }}{% url 'login_token' username=user.username token=token %} (This link is valid one day.)
+
+For every next connection, you will need to type your first name, last name and year of first inscription to the master MVA as it has been entrered by the webmaster. Please tell us if the following information is not correct :
+Your first name : "{{ user.first_name }}"
+Your last name : "{{ user.last_name }}"
+The first year of inscription to the master MVA : {{ user.alumnus.year.pk }}
+
+Our mail server is new, so it may not be recognized as a legitimate mail sender by every mail hoster (eg gmail, hotmail, yahoo...). If you received this mail in your spam directory, it would be very kind from you to click on the "Not spam" button (or equivalent) !
+
+
+The MVA Alumni Directory team
+{{ EMAIL_CONTACT }}

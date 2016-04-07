@@ -1,0 +1,17 @@
+= TODO list : Mva-alumni django directory
+
+== Before launch
+
+== Urgent
+* status : validated, not validated / origin : MVA, MASH, DEA MIA, Centrale
+* Way to add domains, years, origins, ...
+* size of organization
+* phd/not phd and integration in research tool
+* lab / private sector / public sector / association section / study
+* explain link already used
+
+== Not urgent
+* delete old CVs
+* mobile version
+* longer inputs in profile
+

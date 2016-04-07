@@ -1,0 +1,8 @@
+mvaalumni/settings.py
+mvaalumni/settings_local.py
+db.sqlite3
+media
+venv-mvaalumni
+*.pyc
+*~
+

@@ -1,0 +1,58 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MVA-Alumni directory</title>
+        <style>
+        </style>
+        <link rel="shortcut icon" href='{% static "directory/favicon.ico" %}' type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href='{% static "directory/main.css" %}'>
+    </head>
+
+    <body>
+        <header>
+            {% block header %}
+            {% endblock %}
+            <img id="logo" width=100% src='{% static "directory/header.jpg" %}' />
+        </header>
+        <div id="page">
+            <nav id="menu">
+                {% if request.user.is_authenticated %}
+                <h1>{{ request.user.first_name }} </h1>
+                {% endif %}
+                <ul class="nav-main">
+                    <li class="nav-link"><a class="{% block selected_home %}{% endblock %}" href="{% url 'home' %}">Home</a></li>
+                    {% if request.user.is_authenticated %}
+                    <li class="nav-link"><a class="{% block selected_logout %}{% endblock %}" href="{% url 'logout' %}">Logout</a></li>
+                    <li class="nav-node"><span class="nav-node-label {% block selected_search %}{% endblock %}">Search</span>
+                        <ul class="nav-sub">
+                            <li class="nav-leaf"><a class="{% block selected_search_name %}{% endblock %}" href="{% url 'search_name' %}">by name</a></li>
+                            <li class="nav-leaf"><a class="{% block selected_search_year %}{% endblock %}" href="{% url 'search_year' %}">by year</a></li>
+                            <!--<li class="nav-leaf"><a class="{% block selected_search_domain %}{% endblock %}" href="{% url 'search_domain' %}">by domain</a></li>-->
+                            <li class="nav-leaf"><a class="{% block selected_search_keyword %}{% endblock %}" href="{% url 'search_keyword' %}">by keyword</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-node"><span class="nav-node-label {% block selected_me %}{% endblock %}">My profile</span>
+                        <ul class="nav-sub">
+                            <li class="nav-leaf"><a class="{% block selected_me_identity %}{% endblock %}" href="{% url 'me_identity' %}">identity</a></li>
+                            <li class="nav-leaf"><a class="{% block selected_me_contact %}{% endblock %}" href="{% url 'me_contact' %}">contact</a></li>
+                            <li class="nav-leaf"><a class="{% block selected_me_about %}{% endblock %}" href="{% url 'me_about' %}">about you</a></li>
+                        </ul>
+                    </li>
+                    {% if request.user.is_staff %}
+                    <li class="nav-link"><a class="{% block selected_add %}{% endblock %}" href="{% url 'add' %}">Add an alumnus</a></li>
+                    {% endif %}
+                    {% else %}
+                    <li class="nav-link"><a class="{% block selected_login %}{% endblock %}" href="{% url 'login' %}">Login</a></li>
+                    {% endif %}
+                    <li class="nav-link"><a class="{% block selected_contact %}{% endblock %}" href="{% url 'contact' %}">Contact</a></li>
+                </ul>
+            </nav>
+            <section>
+                {% block content %}
+                {% endblock %}
+            </section>
+        </div>
+    </body>
+</html>

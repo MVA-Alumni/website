@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block selected_search %}selected{% endblock %}
+{% block selected_search_keyword %}selected{% endblock %}
+
+{% block content %}
+
+<h1>Search by keyword</h1>
+
+<form action="{% url 'search_keyword' %}" method="post">
+    {% csrf_token %}
+    <input id="id_query" maxlength="60" name="query" type="text" value="{{ query }}"/>
+    <input type="submit" value="Search" />
+</form>
+
+{% if query and alumni.exists == False %}
+    No result found !
+{% endif %}
+
+<ul>
+{% for alumnus in alumni %}
+    <li><a href="{% url 'alumnus' alumnus.user.username %}">{{ alumnus.user.first_name }} {{ alumnus.user.last_name }}</a></li>
+{% endfor %}
+</ul>
+
+{% endblock %} 

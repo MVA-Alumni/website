@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block selected_search %}selected{% endblock %}
+{% block selected_search_domain %}selected{% endblock %}
+
+
+{% block content %}
+
+<h1>{{ domain.name }}</h1>
+
+<ul>
+{% for alumnus in alumni %}
+    <li><a href="{% url 'alumnus' alumnus.user.username %}">{{ alumnus.user.first_name }} {{ alumnus.user.last_name }}</a></li>
+{% endfor %}
+</ul>
+
+
+{% endblock %}
+ 

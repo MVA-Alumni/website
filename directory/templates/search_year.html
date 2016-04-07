@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block selected_search %}selected{% endblock %}
+{% block selected_search_year %}selected{% endblock %}
+
+
+{% block content %}
+
+<h1>Search by year</h1>
+
+The year taken into account is the year of the first inscription to the MVA. For students that graduated in one year, the year of graduation is Y+1.
+
+<ul>
+{% for year in years %}
+    <li><a href="{% url 'year' year.pk %}">{{ year.pk }}</a></li>
+{% endfor %}
+</ul>
+
+{% endblock %}
