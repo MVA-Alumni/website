@@ -1,0 +1,9 @@
+#!/bin/bash -e
+GIT_WORK_TREE=/srv/www/mvaalumni git checkout -f
+chgrp -R www-data /srv/www/mvaalumni
+find /srv/www/mvaalumni -type f -exec chmod 644 {} \;
+find /srv/www/mvaalumni -type d -exec chmod 755 {} \;
+source /srv/www/mvaalumni/venv-mvaalumni/bin/activate
+python /srv/www/mvaalumni/mvaalumni/manage.py collectstatic --noinput
+uwsgi --reload /tmp/uwsgi.pid
+/usr/sbin/service nginx restart
