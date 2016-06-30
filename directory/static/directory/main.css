@@ -59,7 +59,7 @@ li.nav-link a.selected{
  background-color: #184966;
 }
 li.nav-link a:hover{
- cursor:pointer;  
+ cursor:pointer;
  color: #E6E6E6;
  background-color: #184966;
  text-decoration: underline;
@@ -75,7 +75,7 @@ li.nav-leaf a.selected{
 }
 li.nav-leaf a:hover{
  text-decoration: underline;
- cursor:pointer;  
+ cursor:pointer;
 }
 .nav-node-label{
  width: 170px;
@@ -90,7 +90,10 @@ li.nav-leaf a:hover{
 h1{
  color: #184966;
 }
-th{
+th {
+  text-align: left;
+}
+form th{
  text-align: right;
 }
 ul.errorlist{
