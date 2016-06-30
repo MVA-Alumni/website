@@ -244,6 +244,8 @@ def list_users(request):
         for al in alumni
     ]
 
+    nb_alumni = len(alumni_metrics)
+
     return render(request, 'list_users.html', locals())
 
 
