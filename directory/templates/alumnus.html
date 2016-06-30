@@ -33,7 +33,7 @@
 	{% if alumnus.diploma %}<tr><th>Diploma :</th><td>{{ alumnus.diploma }}</td></tr>{% endif %}
 	{% if alumnus.company %}<tr><th>Company :</th><td>{{ alumnus.company }}</td></tr>{% endif %}
 	{% if alumnus.job %}<tr><th>Position :</th><td>{{ alumnus.job }}</td></tr>{% endif %}
-	{% if alumnus.keywords %}<tr><th>Keymords :</th><td>{{ alumnus.keywords }}</td></tr>{% endif %}
+	{% if alumnus.keywords %}<tr><th>Keywords :</th><td>{{ alumnus.keywords }}</td></tr>{% endif %}
 	{# {% if alumnus.domain %}<tr><th>Domain :</th><td>{{ alumnus.domain.name }}</td></tr>{% endif %} #}
 	{% if alumnus.cv %}<tr><th>CV :</th><td><a href="{{ MEDIA_URL }}{{ alumnus.cv }}">CV</a></td></tr>{% endif %}
 </table>
