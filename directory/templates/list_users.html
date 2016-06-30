@@ -9,6 +9,10 @@
 
 <strong>{{ nb_alumni }}</strong> alumni in the database.
 
+{% for metrics_year in metrics_by_year %}
+
+<h2>Year {{metrics_year.year}}</h2>
+
 <table>
     <tr>
       <th>Name</th>
@@ -18,7 +22,7 @@
       <th>about</th>
       <th>CV</th>
     </tr>
-    {% for al in alumni_metrics %}
+    {% for al in metrics_year.alumni_metrics %}
     <tr>
       <td><a href="{% url 'alumnus' al.username %}">{{ al.first_name }} {{ al.last_name }}</a></td>
       <td>{{ al.email }}</td>
@@ -29,5 +33,7 @@
     </tr>
     {% endfor %}
 </table>
+
+{% endfor %}
 
 {% endblock %}

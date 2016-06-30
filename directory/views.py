@@ -229,23 +229,29 @@ def add(request):
 
 @staff_member_required
 def list_users(request):
-    alumni = Alumnus.objects.all()
+    years = Year.objects.all()
 
-    alumni_metrics = [
+    metrics_by_year = [
         {
-            'username': al.user.username,
-            'first_name': al.user.first_name,
-            'last_name': al.user.last_name,
-            'email': al.user.email,
-            'year': al.year.pk,
-            'photo': bool(al.photo),
-            'presentation': len(al.presentation) if al.presentation else 0,
-            'cv': bool(al.cv)
+            'year': year.pk,
+            'alumni_metrics':
+                [
+                    {
+                        'username': al.user.username,
+                        'first_name': al.user.first_name,
+                        'last_name': al.user.last_name,
+                        'email': al.user.email,
+                        'photo': bool(al.photo),
+                        'presentation': len(al.presentation) if al.presentation else 0,
+                        'cv': bool(al.cv)
+                    }
+                    for al in Alumnus.objects.filter(year=year)
+                ]
         }
-        for al in alumni
+        for year in years
     ]
 
-    nb_alumni = len(alumni_metrics)
+    nb_alumni = Alumnus.objects.all().count()
 
     return render(request, 'list_users.html', locals())
 
