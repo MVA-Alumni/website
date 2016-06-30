@@ -28,6 +28,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'directory.middlewares.SetLastVisitMiddleware',
 )
 
 ROOT_URLCONF = 'mvaalumni.urls'
@@ -53,5 +54,3 @@ TIME_ZONE = 'Europe/Paris'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
-
-

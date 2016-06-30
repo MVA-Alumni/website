@@ -243,7 +243,8 @@ def list_users(request):
                         'email': al.user.email,
                         'photo': bool(al.photo),
                         'presentation': len(al.presentation) if al.presentation else 0,
-                        'cv': bool(al.cv)
+                        'cv': bool(al.cv),
+                        'last_visit': al.last_visit
                     }
                     for al in Alumnus.objects.filter(year=year)
                 ]

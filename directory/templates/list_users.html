@@ -21,6 +21,7 @@
       <th>photo</th>
       <th>about</th>
       <th>CV</th>
+      <th>last visit</th>
     </tr>
     {% for al in metrics_year.alumni_metrics %}
     <tr>
@@ -30,6 +31,7 @@
       <td>{% if al.photo %}X{% endif %}</td>
       <td>{{ al.presentation }}</td>
       <td>{% if al.cv %}X{% endif %}</td>
+      <td>{{ al.last_visit }}</td>
     </tr>
     {% endfor %}
 </table>
