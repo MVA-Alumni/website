@@ -50,3 +50,4 @@ class Alumnus(models.Model):
     keywords = models.CharField(max_length=1000, null=True)
     domain = models.ForeignKey(Domain, null=True)
     privacy = models.BooleanField(choices=Privacy, default=PRIVACY_DISPLAYNAME)
+    last_visit = models.DateTimeField(null=True)
