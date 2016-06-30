@@ -237,6 +237,7 @@ def list_users(request):
             'first_name': al.user.first_name,
             'last_name': al.user.last_name,
             'email': al.user.email,
+            'year': al.year.pk,
             'photo': bool(al.photo),
             'presentation': len(al.presentation) if al.presentation else 0,
             'cv': bool(al.cv)
