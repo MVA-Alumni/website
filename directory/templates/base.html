@@ -41,7 +41,12 @@
                         </ul>
                     </li>
                     {% if request.user.is_staff %}
-                    <li class="nav-link"><a class="{% block selected_add %}{% endblock %}" href="{% url 'add' %}">Add an alumnus</a></li>
+                    <li class="nav-node"><span class="nav-node-label {% block selected_staff %}{% endblock %}">Admin</span>
+                        <ul class="nav-sub">
+                            <li class="nav-leaf"><a class="{% block selected_add %}{% endblock %}" href="{% url 'add' %}">Add an alumnus</a></li>
+                            <li class="nav-leaf"><a class="{% block selected_list_users %}{% endblock %}" href="{% url 'list_users' %}">Alumni list</a></li>
+                        </ul>
+                    </li>
                     {% endif %}
                     {% else %}
                     <li class="nav-link"><a class="{% block selected_login %}{% endblock %}" href="{% url 'login' %}">Login</a></li>

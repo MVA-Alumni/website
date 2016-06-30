@@ -199,7 +199,7 @@ def create_user(first_name, last_name, gender, email, year, is_staff):
     token = default_token_generator.make_token(user)
     mail_message = render_to_string('mail_welcome.txt', {'user': user, 'token': token, 'PROTOCOL': settings.PROTOCOL, 'DOMAIN': settings.DOMAIN, 'EMAIL_CONTACT': settings.EMAIL_CONTACT})
     send_mail(subject, mail_message, settings.EMAIL_TOKEN, [user.email], fail_silently=True)
-    
+
 
 
 @staff_member_required
@@ -227,10 +227,30 @@ def add(request):
     return render(request, 'add.html', locals())
 
 
+@staff_member_required
+def list_users(request):
+    alumni = Alumnus.objects.all()
+
+    alumni_metrics = [
+        {
+            'username': al.user.username,
+            'first_name': al.user.first_name,
+            'last_name': al.user.last_name,
+            'email': al.user.email,
+            'photo': bool(al.photo),
+            'presentation': len(al.presentation) if al.presentation else 0,
+            'cv': bool(al.cv)
+        }
+        for al in alumni
+    ]
+
+    return render(request, 'list_users.html', locals())
+
+
 def first_user(request):
     if User.objects.all():
         raise Http404
-	
+
     if request.method == 'POST':
         form = FormAdd(request.POST)
         if form.is_valid():
@@ -274,4 +294,3 @@ def domain(request, pk):
     domain = get_object_or_404(Domain, pk=pk)
     alumni = Alumnus.objects.filter(domain=domain)
     return render(request, 'domain.html', locals())
-

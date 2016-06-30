@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block selected_staff %}selected{% endblock %}
+{% block selected_list_users %}selected{% endblock %}
+
+{% block content %}
+
+<h1>Alumni list</h1>
+
+
+<table>
+    <tr>
+      <th>Name</th>
+      <th>email</th>
+      <th>photo</th>
+      <th>about</th>
+      <th>CV</th>
+    </tr>
+    {% for al in alumni_metrics %}
+      <td><a href="{% url 'alumnus' al.username %}">{{ al.first_name }} {{ al.last_name }}</a></td>
+      <td>{{ al.email }}</td>
+      <td>{% if al.photo %}X{% endif %}</td>
+      <td>{{ al.presentation }}</td>
+      <td>{% if al.cv %}X{% endif %}</td>
+    {% endfor %}
+</table>
+
+{% endblock %}
