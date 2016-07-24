@@ -55,11 +55,10 @@ class FormAbout(forms.Form):
             return None
             #raise ValidationError("Couldn't read the uploaded CV.")
     presentation = forms.CharField(widget=forms.Textarea, label="Presentation ", required=False)
+    linkedin = forms.URLField(label="LinkedIn ", required=False)
     diploma = forms.CharField(label="Diplomas ", max_length=80, required=False)
     company = forms.CharField(label="Current company ", max_length=160, required=False)
     job = forms.CharField(label="Current position ", max_length=160, required=False)
     keywords = forms.CharField(label="Keywords ", max_length=1000, required=False, help_text='enter comma-separated keywords, eg "start-up, big data, bioinformatics, cancer"')
     #domain = ModelChoiceFieldLabelName(queryset=Domain.objects.all(), label="Domain ", required=False)
     cv = forms.FileField(label="CV ", required=False)
-
-

@@ -30,6 +30,7 @@
 <br/>
 
 <table>
+	{% if alumnus.linkedin %}<tr><th>LinkedIn :</th><td>{{ alumnus.linkedin }}</td></tr>{% endif %}
 	{% if alumnus.diploma %}<tr><th>Diploma :</th><td>{{ alumnus.diploma }}</td></tr>{% endif %}
 	{% if alumnus.company %}<tr><th>Company :</th><td>{{ alumnus.company }}</td></tr>{% endif %}
 	{% if alumnus.job %}<tr><th>Position :</th><td>{{ alumnus.job }}</td></tr>{% endif %}

@@ -159,6 +159,7 @@ def me_about(request, success=False):
         form_about = FormAbout(request.POST, request.FILES)
         if form_about.is_valid():
             alumnus.presentation = form_about.cleaned_data["presentation"]
+            alumnus.linkedin = form_about.cleaned_data["linkedin"]
             alumnus.diploma = form_about.cleaned_data["diploma"]
             alumnus.company = form_about.cleaned_data["company"]
             alumnus.job = form_about.cleaned_data["job"]
@@ -172,7 +173,9 @@ def me_about(request, success=False):
         else:
             message_error_about = u"Invalid form !"
     else:
-        initial = {'presentation': alumnus.presentation,
+        initial = {
+            'presentation': alumnus.presentation,
+            'linkedin': alumnus.linkedin,
             'diploma': alumnus.diploma,
             'company': alumnus.company,
             'job': alumnus.job,
@@ -243,6 +246,7 @@ def list_users(request):
                         'email': al.user.email,
                         'photo': bool(al.photo),
                         'presentation': len(al.presentation) if al.presentation else 0,
+                        'linkedin': bool(al.linkedin),
                         'cv': bool(al.cv),
                         'last_visit': al.last_visit
                     }

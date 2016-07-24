@@ -44,6 +44,7 @@ class Alumnus(models.Model):
     postal = models.CharField(max_length=160, null=True)
     website = models.URLField(null=True)
     presentation = models.TextField(null=True)
+    linkedin = models.URLField(null=True)
     diploma = models.CharField(max_length=80, null=True)
     company = models.CharField(max_length=160, null=True)
     job = models.CharField(max_length=160, null=True)

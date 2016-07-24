@@ -20,6 +20,7 @@
       <th>year</th>
       <th>photo</th>
       <th>about</th>
+      <th>LinkedIn</th>
       <th>CV</th>
       <th>last visit</th>
     </tr>
@@ -30,6 +31,7 @@
       <td>{{ al.year }}</td>
       <td>{% if al.photo %}X{% endif %}</td>
       <td>{{ al.presentation }}</td>
+      <td>{% if al.linkedin %}X{% endif %}</td>
       <td>{% if al.cv %}X{% endif %}</td>
       <td>{{ al.last_visit }}</td>
     </tr>
